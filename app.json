@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "React Native Popover View Test App",
+    "description": "Test out react-native-popover-view before you use it!  Play around with the different options on an actual device to see how the Popover responds to different props and situations.",
+    "slug": "react-native-popover-view-test-app",
+    "privacy": "public",
+    "sdkVersion": "30.0.0",
+    "platforms": ["ios", "android"],
+    "version": "1.0.7",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
