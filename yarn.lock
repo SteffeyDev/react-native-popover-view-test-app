@@ -3723,6 +3723,12 @@ react-native-popover-view@1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-1.0.8.tgz#f273700778fa77521603b288bc93b3b739a9987d"
 
+react-native-popover-view@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-1.0.10.tgz#9e7bb94f37ee6a309b1821877f4b5afe9e408192"
+  dependencies:
+    react-native-safe-area-view "^0.10.0"
+
 react-native-reanimated@1.0.0-alpha.6:
   version "1.0.0-alpha.6"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.0.0-alpha.6.tgz#169d23b3b39d1c88e509ddc97027b1c8cc066da8"
@@ -3730,6 +3736,12 @@ react-native-reanimated@1.0.0-alpha.6:
 react-native-safe-area-view@0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.11.0.tgz#4f3dda43c2bace37965e7c6aef5fc83d4f19d174"
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+
+react-native-safe-area-view@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.10.0.tgz#e8e9228d22698c0f82ad1202d24a4e4977260489"
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
