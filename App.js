@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { SafeAreaView, TextInput, ScrollView, StyleSheet, Text, View, TouchableOpacity, Dimensions, Switch, Platform, StatusBar } from 'react-native';
+import { SafeAreaView, TextInput, ScrollView, StyleSheet, Text, View, TouchableOpacity, Dimensions, Switch, Platform, StatusBar, Alert } from 'react-native';
 import Popover, { Rect, Size } from 'react-native-popover-view';
 import createPopoverStackNavigator from 'react-navigation-popover';
 import Icon from '@expo/vector-icons/Ionicons';
 
 class PopoverTestContent extends React.Component {
   state = {
-    contentWidth: 250,
+    contentWidth: null,
     contentWidthWorking: '250',
     contentHeight: 250,
     contentHeightWorking: '250'
@@ -54,26 +54,32 @@ class TouchablePopover extends React.Component {
   }
 
   render() {
-    let buttonWidth = StyleSheet.flatten(styles.button).width;
-    let buttonHeight = StyleSheet.flatten(styles.button).height;
-
     return (
       <React.Fragment>
-        <TouchableOpacity ref={ref => !this.state.touchable && this.setState({touchable: ref})} style={this.props.smallButton ? styles.smallButton : styles.button} onPress={() => this.setState({show: true})}>
+        <TouchableOpacity ref={ref => !this.state.touchable && this.setState({touchable: ref})} style={this.props.smallButton ? styles.smallButton : (this.props.superLargeButton ? styles.largeButton : styles.button)} onPress={() => this.setState({show: true})}>
           <Text>{this.props.title}</Text>
         </TouchableOpacity>
         <Popover 
-            isVisible={this.state.show} 
-            onClose={this.props.noBackgroundTap ? () => true : () => this.setState({show: false})} 
-            fromView={this.state.touchable}
-            verticalOffset={Platform.OS === 'android' ? -StatusBar.currentHeight : 0}
-            {...this.props.popoverOptions}>
-            <PopoverTestContent dark={this.props.dark} contentText={this.props.contentText} />          
-            {this.props.dismissButton &&
-              <TouchableOpacity onPress={() => this.setState({show: false})} style={{alignItems: 'center', height: 35}}>
-                <Text style={{color: 'blue'}}>Dismiss</Text>
-              </TouchableOpacity>
-            }
+          debug={true}
+          isVisible={this.state.show} 
+          onRequestClose={this.props.noBackgroundTap ? () => true : () => this.setState({show: false})} 
+          fromView={this.state.touchable}
+          verticalOffset={Platform.OS === 'android' ? -StatusBar.currentHeight : 0}
+          onOpenStart={() => console.log("Open Start")}
+          onOpenComplete={() => console.log("Open Complete")}
+          onCloseStart={() => console.log("Close Start")}
+          onCloseComplete={() => {
+            console.log("Close Complete");
+            if (this.props.alertOnClose)
+              Alert.alert("Popover has closed!");
+          }}
+          {...this.props.popoverOptions}>
+          <PopoverTestContent dark={this.props.dark} contentText={this.props.contentText} />          
+          {this.props.dismissButton &&
+            <TouchableOpacity onPress={() => this.setState({show: false})} style={{alignItems: 'center', height: 35}}>
+              <Text style={{color: 'blue'}}>Dismiss</Text>
+            </TouchableOpacity>
+          }
         </Popover>
       </React.Fragment>
     )
@@ -81,41 +87,57 @@ class TouchablePopover extends React.Component {
 }
 
 class App extends Component {
+  state = {
+    showTooltipPopover: false,
+    tooltipButton: null
+  }
+
   render() {
 
-    const PLACEMENT_OPTIONS = Popover.PLACEMENT_OPTIONS;
     const smallButton = Dimensions.get('window').width < 500;
 
     return (
       <SafeAreaView>
-      <ScrollView contentContainerStyle={{padding: 20}}>
-        <Text>Welcome to the playground!  There's lots to try; feel free to rotate the screen while a Popover is open to see how it adapts!</Text>
-        <View style={{flexDirection: 'row'}}>
-          <View style={{flex: 1}}>
-            <TouchablePopover key="topLeftCorner" title="Left Against Edge" contentText="The arrow still points to the button even though the view is pushed to the side so that it stays on the screen." smallButton popoverOptions={{placement: Popover.PLACEMENT_OPTIONS.BOTTOM}} />
-            <TouchablePopover key="smallArrow" title="Smaller Arrow" contentText="Look! The arrow is tiny!" smallButton popoverOptions={{arrowStyle: new Size(5, 5)}} />
-            <TouchablePopover key="largeArrow" title="Larger Arrow" contentText="Now it's really big!" smallButton popoverOptions={{arrowStyle: new Size(30, 30)}} />
-            <TouchablePopover key="noArrow" title="No Arrow" contentText="And now it's completely gone *poof*" smallButton popoverOptions={{arrowStyle: {backgroundColor: 'transparent'}}} />
-            <TouchablePopover key="noBorderRadius" title="No Border Radius" contentText="Maybe rounded isn't your thing?" smallButton popoverOptions={{popoverStyle: {borderRadius: 0}}} />
+        <ScrollView contentContainerStyle={{padding: 20}}>
+          <Text>Welcome to the playground!  There's lots to try; feel free to rotate the screen while a Popover is open to see how it adapts!</Text>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{flex: 1}}>
+              <TouchablePopover key="topLeftCorner" title="Left Against Edge" contentText="The arrow still points to the button even though the view is pushed to the side so that it stays on the screen." smallButton popoverOptions={{placement: Popover.PLACEMENT_OPTIONS.BOTTOM}} />
+              <TouchablePopover key="smallArrow" title="Smaller Arrow" contentText="Look! The arrow is tiny!" smallButton popoverOptions={{arrowStyle: new Size(5, 5)}} />
+              <TouchablePopover key="largeArrow" title="Larger Arrow" contentText="Now it's really big!" smallButton popoverOptions={{arrowStyle: new Size(30, 30)}} />
+              <TouchablePopover key="noArrow" title="No Arrow" contentText="And now it's completely gone *poof*" smallButton popoverOptions={{arrowStyle: {backgroundColor: 'transparent'}}} />
+              <TouchablePopover key="noBorderRadius" title="No Border Radius" contentText="Maybe rounded isn't your thing?" smallButton popoverOptions={{popoverStyle: {borderRadius: 0}}} />
+              <TouchableOpacity ref={ref => !this.state.tooltipButton && this.setState({tooltipButton: ref})} style={styles.smallButton} onPress={() => this.setState({showTooltipPopover: true})}>
+                <Text>Show Tooltip</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.container}>
+              <TouchablePopover key="left" title="Left Placement" smallButton={smallButton} popoverOptions={{placement: Popover.PLACEMENT_OPTIONS.LEFT}} />
+              <TouchablePopover key="right" title="Right Placement" smallButton={smallButton} popoverOptions={{placement: 'right'}} /> 
+              <TouchablePopover key="bottom" title="Bottom Placement" smallButton={smallButton} popoverOptions={{placement: 'bottom'}} />
+              <TouchablePopover key="top" title="Top Placement" smallButton={smallButton} popoverOptions={{placement: 'top'}} />
+              <TouchablePopover key="auto" title="Auto Placement" smallButton={smallButton} popoverOptions={{placement: 'auto'}} />
+              <TouchablePopover key="centered" title="Centered Floating" smallButton={smallButton} popoverOptions={{fromView: null}} />
+              <TouchablePopover key="alert" title="Alert on Close" contentText="When this closes, an alert should show to inform you (demo of onCloseComplete callback)"  smallButton={smallButton} alertOnClose />
+              <TouchablePopover key="inside" title="Popover Inside Button" superLargeButton={true}  />
+            </View>
+            <View style={{flex: 1, alignItems: 'flex-end'}}>
+              <TouchablePopover key="topRightCorner" title="Right Against Edge" contentText="The arrow still points to the button even though the view is pushed to the side so that it stays on the screen." smallButton popoverOptions={{placement: Popover.PLACEMENT_OPTIONS.BOTTOM}} />
+              <TouchablePopover key="noBackground" title="No Background Fade" contentText="You can still tap on the background to dismiss the Popover, you just can't see it!" smallButton popoverOptions={{ backgroundStyle: { backgroundColor: 'transparent' } }} />
+              <TouchablePopover key="tapToDismissOff" title="No Tap Background" contentText="Now the background is here, but tapping on it doesn't dismiss the Popover! You'll have to use the button." smallButton noBackgroundTap dismissButton />
+              <TouchablePopover key="staticRect" title="Show From Static Rect" contentText="This is anchored to a static rectangle elsewhere on the screen, not to the button that triggered it." smallButton popoverOptions={{fromRect: new Rect(100, 100, 100, 100)}} />
+              <TouchablePopover key="backgroundColor" title="Dark Theme" contentText="Check out the different options available through popoverStyle!" smallButton dark popoverOptions={{popoverStyle: {backgroundColor: 'black'}}} />
+              <TouchablePopover key="animationConfig" title="No Animation" contentText="You can really customize the animation if you want using animationConfig" smallButton popoverOptions={{animationConfig: {duration: 0}}} />
+            </View>
           </View>
-          <View style={styles.container}>
-            <TouchablePopover key="left" title="Left Placement" smallButton={smallButton} popoverOptions={{placement: Popover.PLACEMENT_OPTIONS.LEFT}} />
-            <TouchablePopover key="right" title="Right Placement" smallButton={smallButton} popoverOptions={{placement: 'right'}} /> 
-            <TouchablePopover key="bottom" title="Bottom Placement" smallButton={smallButton} popoverOptions={{placement: 'bottom'}} />
-            <TouchablePopover key="top" title="Top Placement" smallButton={smallButton} popoverOptions={{placement: 'top'}} />
-            <TouchablePopover key="auto" title="Auto Placement" smallButton={smallButton} popoverOptions={{placement: 'auto'}} />
-            <TouchablePopover key="centered" title="Centered Floating" smallButton={smallButton} popoverOptions={{fromView: null}} />
+        </ScrollView>
+        <Popover isVisible={this.state.showTooltipPopover} fromView={this.state.tooltipButton} mode={Popover.MODE.TOOLTIP} placement={Popover.PLACEMENT_OPTIONS.TOP} debug={true}>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ margin: 10 }}>Some useful info</Text>
+            <View style={{ width: 1, height: '100%', backgroundColor: 'black' }} />
+            <TouchableOpacity style={{ padding: 10 }} onPress={() => this.setState({ showTooltipPopover: false })}><Text>Close</Text></TouchableOpacity>
           </View>
-          <View style={{flex: 1, alignItems: 'flex-end'}}>
-            <TouchablePopover key="topRightCorner" title="Right Against Edge" contentText="The arrow still points to the button even though the view is pushed to the side so that it stays on the screen." smallButton popoverOptions={{placement: Popover.PLACEMENT_OPTIONS.BOTTOM}} />
-            <TouchablePopover key="noBackground" title="No Background Fade" contentText="You can still tap on the background to dismiss the Popover, you just can't see it!" smallButton popoverOptions={{showBackground: false}} />
-            <TouchablePopover key="tapToDismissOff" title="No Tap Background" contentText="Now the background is here, but tapping on it doesn't dismiss the Popover! You'll have to use the button." smallButton noBackgroundTap dismissButton />
-            <TouchablePopover key="staticRect" title="Show From Static Rect" contentText="This is anchored to a static rectangle elsewhere on the screen, not to the button that triggered it." smallButton popoverOptions={{fromRect: new Rect(100, 100, 100, 100)}} />
-            <TouchablePopover key="backgroundColor" title="Dark Theme" contentText="Check out the different options available through popoverStyle!" smallButton dark popoverOptions={{popoverStyle: {backgroundColor: 'black'}}} />
-            <TouchablePopover key="animationConfig" title="No Animation" contentText="You can really customize the animation if you want using animationConfig" smallButton popoverOptions={{animationConfig: {duration: 0}}} />
-          </View>
-        </View>
-      </ScrollView>
+        </Popover>
       </SafeAreaView>
     );
   }
@@ -223,6 +245,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     width: 90,
     height: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+    padding: 5
+  },
+  largeButton: {
+    backgroundColor: 'gray',
+    width: 300,
+    height: Dimensions.get('window').height - 50,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 40,

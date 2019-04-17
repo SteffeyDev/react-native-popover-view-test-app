@@ -3723,9 +3723,10 @@ react-native-popover-view@1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-1.0.8.tgz#f273700778fa77521603b288bc93b3b739a9987d"
 
-react-native-popover-view@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-1.0.10.tgz#9e7bb94f37ee6a309b1821877f4b5afe9e408192"
+react-native-popover-view@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-2.0.0.tgz#6cbb12e35a8d1714cec160f5528ccfd7c5469525"
+  integrity sha512-9GZkXAIv9bSduLhnlTLBecB4XIvXqJh+YQ6nQDYdrh2ZTAbTmGxKAMzo6e+UqrJ4iObWJ+xhRvbb2o2LTHY3eg==
   dependencies:
     react-native-safe-area-view "^0.10.0"
 
