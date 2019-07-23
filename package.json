@@ -1,6 +1,6 @@
 {
   "name": "react-native-popover-view-test-app",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^8.0.0",
-    "expo": "^30.0.1",
-    "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
-    "react-native-popover-view": "^2.0.0",
+    "expo": "^33.0.0",
+    "react": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-native-popover-view": "^2.0.2",
     "react-navigation": "^2.18.0",
     "react-navigation-popover": "^1.0.9"
   }
