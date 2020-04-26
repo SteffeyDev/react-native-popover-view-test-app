@@ -912,19 +912,12 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@expo/vector-icons@^10.0.1":
+"@expo/vector-icons@^10.0.0", "@expo/vector-icons@^10.0.1":
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.0.3.tgz#9dec25cf6c29871f2bb1fe932029878c221f1f75"
   integrity sha512-3iTdjnBlleddgcRGZV9JQXi+WRL3n2BehW48JOFv/mydx8BjHD0QAcYLOXGuwrcRKR0AIRhHxFQwKVyQ4YcYLA==
   dependencies:
     lodash "^4.17.4"
-
-"@expo/vector-icons@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-8.0.0.tgz#29c91778aee02b92b045914bbed8eec299a84e5e"
-  dependencies:
-    lodash "^4.17.4"
-    react-native-vector-icons "6.0.0"
 
 "@expo/websql@^1.0.1":
   version "1.0.1"
@@ -3160,14 +3153,14 @@ lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
 
-lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-
 lodash@^4.16.2, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.5.0, lodash@^4.6.0:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   version "1.4.0"
@@ -4261,10 +4254,10 @@ react-native-popover-view@1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-1.0.8.tgz#f273700778fa77521603b288bc93b3b739a9987d"
 
-react-native-popover-view@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-2.0.2.tgz#294f3e34249d3bdac55b46070ee8772f8300c9cc"
-  integrity sha512-HNTv7lKEphHYuqQhodQ8/Q4qBIJuTJC7Xwdx1ICHfnRnSDeyNnCazcOny/VUDB7lA5j6Z5E3GFWBdPyb3Fj3JA==
+react-native-popover-view@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-2.0.4.tgz#760f62f32c6d99eb18059773e493ccf0f614d193"
+  integrity sha512-wsZ7NAYji1whjA+uTvv9r2pI9p+WePfR9uUBdb1pcBa20cnIp2BnuBtwdXxifDf/bOJg5FnBQ9Miv0WeGyeUGA==
   dependencies:
     react-native-safe-area-view "^0.14.6"
 
@@ -4272,6 +4265,11 @@ react-native-reanimated@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.0.1.tgz#5ecb6a2f6dad0351077ac9b771ca943b7ad6feda"
   integrity sha512-RENoo6/sJc3FApP7vJ1Js7WyDuTVh97bbr5aMjJyw3kqpR2/JDHyL/dQFfOvSSAc+VjitpR9/CfPPad7tLRiIA==
+
+react-native-restart@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/react-native-restart/-/react-native-restart-0.0.12.tgz#afd51c445bdadfd34a02e29955eefe66a86af86d"
+  integrity sha512-aSvcsiSLUbHt1E0AXuC2gpIXBTn1p3J4jfTYFbFv/D19zTLW5WVUb4blgVt70RCkqvZWD3NEymS4ZZmFWGDclA==
 
 react-native-safe-area-view@0.11.0:
   version "0.11.0"
@@ -4317,14 +4315,6 @@ react-native-tab-view@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-1.2.0.tgz#0cc26a1c8e49b6c0d58a30363dbbe43954907c31"
   dependencies:
     prop-types "^15.6.1"
-
-react-native-vector-icons@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.0.0.tgz#3a7076dbe244ea94c6d5e92802a870e64a4283c5"
-  dependencies:
-    lodash "^4.0.0"
-    prop-types "^15.6.2"
-    yargs "^8.0.2"
 
 react-native-view-shot@2.6.0:
   version "2.6.0"
@@ -5415,24 +5405,6 @@ yargs-parser@^7.0.0:
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-7.0.0.tgz#8d0ac42f16ea55debd332caf4c4038b3e3f5dfd9"
   dependencies:
     camelcase "^4.1.0"
-
-yargs@^8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-8.0.2.tgz#6299a9055b1cefc969ff7e79c1d918dceb22c360"
-  dependencies:
-    camelcase "^4.1.0"
-    cliui "^3.2.0"
-    decamelize "^1.1.1"
-    get-caller-file "^1.0.1"
-    os-locale "^2.0.0"
-    read-pkg-up "^2.0.0"
-    require-directory "^2.1.1"
-    require-main-filename "^1.0.1"
-    set-blocking "^2.0.0"
-    string-width "^2.0.0"
-    which-module "^2.0.0"
-    y18n "^3.2.1"
-    yargs-parser "^7.0.0"
 
 yargs@^9.0.0:
   version "9.0.1"

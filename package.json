@@ -10,11 +10,12 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo/vector-icons": "^8.0.0",
+    "@expo/vector-icons": "^10.0.0",
     "expo": "^33.0.0",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "react-native-popover-view": "^2.0.2",
+    "react-native-popover-view": "2.0.4",
+    "react-native-restart": "^0.0.12",
     "react-navigation": "^2.18.0",
     "react-navigation-popover": "^1.0.9"
   }

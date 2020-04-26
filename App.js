@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { SafeAreaView, TextInput, ScrollView, StyleSheet, Text, View, TouchableOpacity, Dimensions, Switch, Platform, StatusBar, Alert } from 'react-native';
+import { SafeAreaView, TextInput, ScrollView, StyleSheet, Text, View, TouchableOpacity, Dimensions, Switch, Platform, StatusBar, Alert, I18nManager } from 'react-native';
 import Popover, { Rect, Size } from 'react-native-popover-view';
 import createPopoverStackNavigator from 'react-navigation-popover';
 import Icon from '@expo/vector-icons/Ionicons';
+import RNRestart from "react-native-restart";
 
 class PopoverTestContent extends React.Component {
   state = {
@@ -90,6 +91,16 @@ class App extends Component {
   state = {
     showTooltipPopover: false,
     tooltipButton: null
+  }
+
+  constructor() {
+    super()
+    // Uncomment to test RTL
+    //I18nManager.allowRTL(false);
+    //I18nManager.forceRTL(false);
+    //if (I18nManager.isRTL) {
+    //  RNRestart.Restart();
+    //}
   }
 
   render() {
