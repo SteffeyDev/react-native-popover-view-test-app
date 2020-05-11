@@ -1,6 +1,6 @@
 {
   "name": "react-native-popover-view-test-app",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
