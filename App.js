@@ -128,7 +128,7 @@ class App extends Component {
               <TouchablePopover key="bottom" title="Bottom Placement" smallButton={smallButton} popoverOptions={{placement: 'bottom'}} />
               <TouchablePopover key="top" title="Top Placement" smallButton={smallButton} popoverOptions={{placement: 'top'}} />
               <TouchablePopover key="auto" title="Auto Placement" smallButton={smallButton} popoverOptions={{placement: 'auto'}} />
-              <TouchablePopover key="centered" title="Centered Floating" smallButton={smallButton} popoverOptions={{fromView: null}} />
+              <TouchablePopover key="centered" title="Centered Floating" smallButton={smallButton} popoverOptions={{placement: 'center'}} />
               <TouchablePopover key="alert" title="Alert on Close" contentText="When this closes, an alert should show to inform you (demo of onCloseComplete callback)"  smallButton={smallButton} alertOnClose />
               <TouchablePopover key="inside" title="Popover Inside Button" superLargeButton={true}  />
             </View>
