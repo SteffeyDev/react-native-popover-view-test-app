@@ -90,7 +90,8 @@ class TouchablePopover extends React.Component {
 class App extends Component {
   state = {
     showTooltipPopover: false,
-    tooltipButton: null
+    tooltipButton: null,
+    showByMountPopover: false
   }
 
   constructor() {
@@ -121,6 +122,22 @@ class App extends Component {
               <TouchableOpacity ref={ref => !this.state.tooltipButton && this.setState({tooltipButton: ref})} style={styles.smallButton} onPress={() => this.setState({showTooltipPopover: true})}>
                 <Text>Show Tooltip</Text>
               </TouchableOpacity>
+              <TouchableOpacity style={styles.smallButton} ref={ref => (this.showByMountButton = ref)} onPress={() => this.setState({showByMountPopover: true})}>
+                <Text>Show By Mounting</Text>
+              </TouchableOpacity>
+              {this.state.showByMountPopover && (
+                <Popover
+                  isVisible={true}
+                  fromView={this.showByMountButton}
+                  onRequestClose={() => this.setState({showByMountPopover: false})}
+                  debug={true}
+                  onOpenStart={() => console.log("Open Start")}
+                  onOpenComplete={() => console.log("Open Complete")}
+                  onCloseStart={() => console.log("Close Start")}
+                  onCloseComplete={() => console.log("Close Complete (this will not get printed)")}>
+                  <Text style={{ padding: 30 }}>This is shown and hidden by mounting and unmounting the popover, instead of changing isVisible.  Obviously this make for a less than ideal closing experience, but at least it doesn't cause any actual issues.</Text>
+                </Popover>
+              )}
             </View>
             <View style={styles.container}>
               <TouchablePopover key="left" title="Left Placement" smallButton={smallButton} popoverOptions={{placement: Popover.PLACEMENT_OPTIONS.LEFT}} />
