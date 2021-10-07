@@ -188,7 +188,7 @@ export default class App extends Component {
               <TouchablePopover key="left" title="Left Placement" smallButton={smallButton} popoverOptions={{placement: PopoverPlacement.LEFT}} />
               <TouchablePopoverFromElementFunction key="right" title="Right Placement" smallButton={smallButton} popoverOptions={{placement: 'right'}} /> 
               <TouchablePopover key="bottom" title="Bottom Placement" smallButton={smallButton} popoverOptions={{placement: 'bottom'}} />
-              <TouchablePopoverFromElementFunction key="top" title="Top Placement" smallButton={smallButton} popoverOptions={{placement: 'top', mode: PopoverMode.JS_MODAL}} />
+              <TouchablePopoverFromElementFunction key="top" title="Top Placement" smallButton={smallButton} popoverOptions={{placement: 'top', mode: PopoverMode.JS_MODAL, verticalOffset: 0 }} />
               <TouchablePopover key="auto" title="Auto Placement" smallButton={smallButton} popoverOptions={{placement: 'auto'}} />
               <TouchablePopover key="centered" title="Centered Floating" smallButton={smallButton} popoverOptions={{placement: 'center'}} />
               <TouchablePopover key="alert" title="Alert on Close" contentText="When this closes, an alert should show to inform you (demo of onCloseComplete callback)"  smallButton={smallButton} popoverOptions={{ onCloseComplete: () => Alert.alert("Popover has closed!")}} />
@@ -204,8 +204,11 @@ export default class App extends Component {
               <TouchablePopover key="arrowShift" title="Shifted Arrow" contentText="The arrow can be shifted so that it is not pointing at the center of the source view.  This arrow is shifted close to the left side." smallButton popoverOptions={{arrowShift: -0.8}} />
             </View>
           </View>
+          <View style={{ marginLeft: -60 }}>
+            <TouchablePopover key="partlyOffScreen" title="Button partly off screen" contentText="Not everything aligns perfectly" smallButton popoverOptions={{ placement: 'right' }} />
+          </View>
         </ScrollView>
-        <Popover isVisible={this.state.showTooltipPopover} from={this.tooltipButton} mode={PopoverMode.TOOLTIP} placement={PopoverPlacement.TOP} debug={true}>
+        <Popover isVisible={this.state.showTooltipPopover} from={this.tooltipButton} mode={PopoverMode.TOOLTIP} placement={PopoverPlacement.TOP} debug={true} popoverStyle={{ backgroundColor: 'lightgray' }}>
           <View style={{ flexDirection: 'row' }}>
             <Text style={{ margin: 10 }}>Some useful info</Text>
             <View style={{ width: 1, height: '100%', backgroundColor: 'black' }} />
