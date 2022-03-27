@@ -314,8 +314,19 @@ export default function App() {
   //if (I18nManager.isRTL) {
   //  RNRestart.Restart();
   //}
+
   const tooltipRef = useRef();
   const [tooltipPopoverVisible, setTooltipPopoverVisible] = useState(false);
+
+  if (Platform.OS === "web") {
+    return (
+      <View style={{ padding: 30 }}>
+        <Text>
+          Switch to iOS, Android, or your own device to test the Popover
+        </Text>
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView>
@@ -717,11 +728,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   button: {
     backgroundColor: "lightgray",
     alignItems: "center",
@@ -747,10 +753,5 @@ const styles = StyleSheet.create({
     height: 25,
     borderColor: "gray",
     borderWidth: 1,
-  },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginLeft: 15,
   },
 });
