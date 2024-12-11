@@ -6245,14 +6245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.2.0":
-  version: 2.6.0
-  resolution: "node-fetch@npm:2.6.0"
-  checksum: 10c0/ad8b68b9d93c6e7c3f1e8f3cb3d3d48449a3aa7d9df444c332573b6b49393495c30dffef81adc7b1eb3da8acf285d05399bfd685d8a68bd5cc3704bb00861f85
-  languageName: node
-  linkType: hard
-
-"node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.12":
+"node-fetch@npm:^2.2.0, node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.12":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
   dependencies:
