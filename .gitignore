@@ -17,3 +17,7 @@ web-report/
 
 # yarn
 /.yarn/install-state.gz
+
+# Expo & React Native
+/ios
+/android

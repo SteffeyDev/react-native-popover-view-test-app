@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "React Native Popover View Test App",
+    "newArchEnabled": false,
     "description": "Test out react-native-popover-view before you use it!  Play around with the different options on an actual device to see how the Popover responds to different props and situations.",
     "slug": "react-native-popover-view-test-app",
     "privacy": "public",
