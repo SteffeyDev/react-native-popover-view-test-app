@@ -3,7 +3,7 @@
     "name": "React Native Popover View Test App",
     "description": "Test out react-native-popover-view before you use it!  Play around with the different options on an actual device to see how the Popover responds to different props and situations.",
     "slug": "react-native-popover-view-test-app",
-    "privacy": "public",
+    "newArchEnabled": false,
     "platforms": [
       "ios",
       "android",
@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.steffeydev.reactnativepopoverviewtestapp"
+    },
+    "android": {
+      "package": "com.steffeydev.reactnativepopoverviewtestapp"
     }
   }
 }

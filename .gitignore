@@ -14,3 +14,7 @@ web-report/
 # macOS
 .DS_Store
 .dccache
+
+# Expo prebuild
+/android
+/ios
