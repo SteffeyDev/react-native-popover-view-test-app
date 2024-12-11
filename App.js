@@ -20,6 +20,8 @@ import Popover, {
   PopoverMode,
 } from "react-native-popover-view";
 
+const statusBarTranslucent = false;
+
 function PopoverTestContent() {
   const [contentWidth, setContentWidth] = useState(null);
   const [contentWidthTemp, setContentWidthTemp] = useState("250");
@@ -87,11 +89,11 @@ function DebugPopover(props) {
     <Popover
       displayAreaInsets={{ left: 10, right: 10, top: 50, bottom: 50 }}
       debug={true}
-      verticalOffset={Platform.OS === "android" ? -StatusBar.currentHeight : 0}
       onOpenStart={() => console.log("Open Start")}
       onOpenComplete={() => console.log("Open Complete")}
       onCloseStart={() => console.log("Close Start")}
       onCloseComplete={() => console.log("Close Complete")}
+      statusBarTranslucent={statusBarTranslucent}
       {...otherProps}
     >
       <View style={!noPadding ? { padding: 20 } : {}}>{content}</View>
@@ -330,6 +332,7 @@ export default function App() {
 
   return (
     <SafeAreaView>
+      <StatusBar translucent={statusBarTranslucent} />
       <ScrollView contentContainerStyle={{ padding: 20 }}>
         <Text style={{ textAlign: 'center', fontFamily: Platform.OS === 'ios' ? 'Courier New' : 'monospace', fontSize: 20, fontWeight: 'bold' }}>
           react-native-popover-view
