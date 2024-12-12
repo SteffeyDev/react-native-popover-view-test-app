@@ -1,1 +1,1 @@
-This is a test app for react-native-popover-view that can be used to test the library. Use `yarn watch` while working on a local copy of react-native-popover-view in combination with `transfer.sh` to copy the compiled changes to this project.
+This is a test app for [react-native-popover-view](https://github.com/SteffeyDev/react-native-popover-view) that can be used to test the library. Use `yarn watch` while working on a local copy of react-native-popover-view in combination with `transfer.sh` to copy the compiled changes to this project.
