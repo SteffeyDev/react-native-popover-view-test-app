@@ -25,7 +25,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.reactnativepopoverviewtestapp"
+    },
+    "android": {
+      "package": "com.reactnativepopoverviewtestapp"
     }
   }
 }
