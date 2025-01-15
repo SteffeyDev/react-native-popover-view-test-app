@@ -6963,18 +6963,18 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-native: "npm:0.76.5"
-    react-native-popover-view: "npm:^5.1.9"
+    react-native-popover-view: "npm:^6.0.1"
     react-native-web: "npm:~0.19.13"
   languageName: unknown
   linkType: soft
 
-"react-native-popover-view@npm:^5.1.9":
-  version: 5.1.9
-  resolution: "react-native-popover-view@npm:5.1.9"
+"react-native-popover-view@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "react-native-popover-view@npm:6.0.1"
   dependencies:
     deprecated-react-native-prop-types: "npm:^2.3.0"
     prop-types: "npm:^15.8.1"
-  checksum: 10c0/64c58f85572564edaafa1ff03903919086bf053c2515eb14e80cf8d19f14c89adb10a06ad672a5aaa91d8a770d4bf8253fa9b0dda8cc3e4e764f62cde9ea2ffc
+  checksum: 10c0/831d34b22180030f1a99932475be5248559f729c0bddd368a3fd8d6502488589268ac15dad90920e46028f5087c454c57e5503ce7ab79dfd87303d8ef86c83f0
   languageName: node
   linkType: hard
 
